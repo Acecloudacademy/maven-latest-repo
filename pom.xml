@@ -2,6 +2,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.acecloudacademy</groupId>
@@ -10,8 +11,7 @@
     <packaging>war</packaging>
 
     <name>Ace Cloud Academy Web App</name>
-    <description>Web application using javax.servlet and Spring 5</description>
-    <url>http://www.acecloudacademy.com</url>
+    <description>Web application using Jakarta Servlet and Spring</description>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -21,15 +21,15 @@
     </properties>
 
     <dependencies>
-        <!-- Javax Servlet API (for HttpServletRequest, HttpServletResponse, etc.) -->
+        <!-- ✅ FIX: Use Jakarta Servlet API -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Spring Framework (5.x to support javax.servlet) -->
+        <!-- Spring Framework -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -51,7 +51,7 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <!-- JSON handling -->
+        <!-- JSON -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
@@ -76,7 +76,6 @@
     <build>
         <finalName>maven-web-application</finalName>
         <plugins>
-            <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -87,7 +86,6 @@
                 </configuration>
             </plugin>
 
-            <!-- WAR Packaging Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
